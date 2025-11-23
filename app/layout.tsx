@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./../style/globals.css";
 import { inter } from "@/lib/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -112,6 +113,9 @@ export const metadata: Metadata = {
     other: {
         "contact": "mailto:hoeunpichet@gmail.com",
         "github": "https://github.com/HoeunPichet",
+        "google-site-verification": "djEi_EPsLIKAKEA941_aHFA2GxdmogdSwcAG8HLqYRw",
+        "msvalidate.01": "3CA6494CAB661343605A13E760AB5B90",
+        "msapplication-config": "/browserconfig.xml",
     },
 };
 
@@ -188,6 +192,19 @@ export default function RootLayout({
                         {children}
                     </main>
                 </ThemeProvider>
+                <Script
+                    id="microsoft-clarity"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function(c,l,a,r,i,t,y){
+                                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                            })(window, document, "clarity", "script", "uaityile3l");
+                        `,
+                    }}
+                />
             </body>
         </html>
     );
