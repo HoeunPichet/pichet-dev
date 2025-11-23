@@ -79,7 +79,7 @@ function TypewriterCode({ codeLines, delay = 0 }: { codeLines: string[], delay?:
                     return newLines;
                 });
                 setCurrentCharIndex(prev => prev + 1);
-            }, 50 + Math.random() * 30); // Variable typing speed for realism
+            }, 30 + Math.random() * 20); // Faster typing speed
 
             return () => clearTimeout(timer);
         } else {
@@ -87,7 +87,7 @@ function TypewriterCode({ codeLines, delay = 0 }: { codeLines: string[], delay?:
             const timer = setTimeout(() => {
                 setCurrentLineIndex(prev => prev + 1);
                 setCurrentCharIndex(0);
-            }, 200); // Pause between lines
+            }, 100); // Faster pause between lines
 
             return () => clearTimeout(timer);
         }
@@ -101,8 +101,8 @@ function TypewriterCode({ codeLines, delay = 0 }: { codeLines: string[], delay?:
                 setCurrentLineIndex(0);
                 setCurrentCharIndex(0);
                 setIsTyping(false);
-                setTimeout(() => setIsTyping(true), 1000);
-            }, 3000); // Wait 3 seconds before restarting
+                setTimeout(() => setIsTyping(true), 500);
+            }, 1500); // Faster restart - wait 1.5 seconds before restarting
 
             return () => clearTimeout(resetTimer);
         }
@@ -182,7 +182,7 @@ export default function HeroSection() {
     return (
         <section
             id="about"
-            className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-primary-50/20 dark:to-primary-950/20 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-background to-primary-50/20 dark:to-transparent overflow-hidden"
         >
             {/* Scroll Indicator - Gen Z Style */}
             <motion.div
@@ -648,13 +648,21 @@ export default function HeroSection() {
                             {/* 3D Flip Card Container */}
                             <div className="relative w-full h-[400px] sm:h-[450px] perspective-1000">
                                 <motion.div
-                                    className="cursor-target relative w-full h-full preserve-3d transition-transform duration-500"
+                                    className="cursor-target relative w-full h-full preserve-3d"
                                     whileHover={{ rotateY: 180, scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     animate={{
                                         y: [0, -8, 0],
                                     }}
                                     transition={{
+                                        rotateY: {
+                                            duration: 0.4,
+                                            ease: "easeInOut"
+                                        },
+                                        scale: {
+                                            duration: 0.3,
+                                            ease: "easeOut"
+                                        },
                                         y: {
                                             duration: 3,
                                             repeat: Infinity,
