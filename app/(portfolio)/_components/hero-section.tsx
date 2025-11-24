@@ -213,7 +213,7 @@ export default function HeroSection() {
                 </motion.div>
             </motion.div>
             {/* Particles Background */}
-            <div className="absolute inset-0 z-0">
+            <div className="fixed top-0 left-0 inset-0 z-0">
                 <ParticlesComponent
                     id="hero-particles"
                     number={80}

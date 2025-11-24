@@ -160,7 +160,7 @@ export default function SkillsSection() {
     return (
         <section
             id="skills"
-            className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-background to-primary-50/10 dark:to-primary-950/10 overflow-hidden"
+            className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
             ref={ref}
         >
             <div className="container mx-auto max-w-7xl relative z-10">
